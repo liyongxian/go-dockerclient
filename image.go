@@ -273,7 +273,7 @@ func (c *Client) PushImage(opts PushImageOptions, auth AuthConfiguration) error 
 	opts.Name = ""
 	path := "/images/" + name + "/push?" + queryString(&opts)
 	return c.stream(http.MethodPost, path, streamOptions{
-		setRawTerminal:    true,
+		setRawTerminal:    false,
 		rawJSONStream:     opts.RawJSONStream,
 		headers:           headers,
 		stdout:            opts.OutputStream,
